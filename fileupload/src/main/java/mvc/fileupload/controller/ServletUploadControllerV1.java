@@ -4,6 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,8 @@ public class ServletUploadControllerV1 {
         return "upload-form";
     }
 
+
+
     // post요청 처리하는 메서드
     @PostMapping("/upload")
     public String saveFileV1(HttpServletRequest request) throws
@@ -34,9 +37,11 @@ public class ServletUploadControllerV1 {
         String itemName = request.getParameter("itemName");
         log.info("itemName={}", itemName);
 
-        // multipart로 보내진 각각으 파트들을 출력
+        // multipart로 보내진 각각의 파트들을 출력
         Collection<Part> parts = request.getParts();
         log.info("parts={}", parts);
+
+
 
         return "upload-form";
     }
