@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- post 방식으로 form 데이터를 전송해도 get 방식 때 사용한 메서드를 그대로 사용할 수 있는데
+     그 이유는  content body에는 get방식의 쿼리 파라미터 형식과 똑같은 형식의 데이터가  들어 가기 때문이다.
+     따라서 get 방식 때 사용한 메서드를 그대로 사용해서 form 데이터를 조회하면 된다.
+-->
+<form action="/request-param" method="post">
+    username: <input type="text" name="username" />
+    age:      <input type="text" name="age" />
+    <button type="submit">전송</button>
+</form>
+</body>
+</html>
