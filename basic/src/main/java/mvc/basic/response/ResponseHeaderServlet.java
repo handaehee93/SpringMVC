@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")
 public class ResponseHeaderServlet extends HttpServlet {
@@ -31,6 +32,7 @@ public class ResponseHeaderServlet extends HttpServlet {
         content(resp);
         cookie(resp);
         redirect(resp);
+
     }
 
 
