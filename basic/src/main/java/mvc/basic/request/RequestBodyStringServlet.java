@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @WebServlet(name = "requestBodyServlet", urlPatterns = "/request-body-string")
-public class RequestBodyServlet extends HttpServlet {
+public class RequestBodyStringServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         requstBody(req);
