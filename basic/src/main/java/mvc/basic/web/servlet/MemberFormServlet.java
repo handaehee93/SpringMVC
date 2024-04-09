@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 
 
 // 회원 가입 페이지 HTML을 제공하는 서블릿을 만든다.
-@WebServlet(name="memberFormServlet" , urlPatterns = "/servlet/member/new-form")
+@WebServlet(name="memberFormServlet" , urlPatterns = "/servlet/members/new-form")
 public class MemberFormServlet extends HttpServlet {
 
     // 이전에 MemberRepository를 싱글톤으로 만들었기 때문에 new 키워드로 인스턴스를 새로 생성하는 것이 아니라
