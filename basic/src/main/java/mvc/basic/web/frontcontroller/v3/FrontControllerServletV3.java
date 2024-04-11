@@ -39,13 +39,22 @@ public class FrontControllerServletV3 extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
-
+        // request의 파라미터 key와 value를 map에 담는다.
         Map<String, String> paramMap = createParamMap(request);
-        ModelView mv = controller.process(paramMap);
-        String viewName = mv.getViewName();
+
+        // map에 담긴 파라미터 정보를 컨트롤러에 전달한다.
+        // 컨트롤러는 view 경로와 데이터가 담긴 modelView 객체를 반환하고
+        ModelView modelView = controller.process(paramMap);
+
+        // modelView에서 view 경로를 가져와 viewResolver에 넣어 view 경로를
+        // 완성하고
+        String viewName = modelView.getViewName();
         MyView view = viewResolver(viewName);
-        view.render(mv.getModel(), request, response);
+
+        // render함수를 넣어 포워딩 한다.
+        view.render(modelView.getModel(), request, response);
     }
+
 
     private Map<String, String> createParamMap(HttpServletRequest request) {
         Map<String, String> paramMap = new HashMap<>();
