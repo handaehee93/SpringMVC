@@ -38,7 +38,7 @@ public class FrontControllerServletV2 extends HttpServlet {
             return;
         }
 
-        // 일치하는 컨트롤러가 있으면 이전가는 달리 각각의 컨트로럴에서 view 객체를 받아와서
+        // 일치하는 컨트롤러가 있으면 이전과는 달리 각각의 컨트롤러에서 view 객체를 받아와서
         // 내부에 render 메서드를 호출하여 화면을 연결한다.
         MyView view = controller.process(req, resp);
         view.render(req,resp);
