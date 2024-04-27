@@ -41,11 +41,17 @@ public class FrontControllerServletV4 extends HttpServlet {
             return;
         }
 
+        // request의 파라미터 정보를 map으로 만들고, 데이터를 저장할 수 있는 model을 만들어 각 컨트롤러에 전달한다.
         Map<String, String> paramMap = createParamMap(request);
         Map<String, Object> model = new HashMap<>(); //추가
 
+        // 컨트롤러는 파라미터 정보와 model(데이터를 저장할 수 있는 그릇)을 전달 받고 데이터를 저장한 뒤 viewName만 반환한다.
         String viewName = controller.process(paramMap, model);
         MyView view = viewResolver(viewName);
+
+        // 프론트 컨트롤에서 전달한 model을 참조형 데이터이기 때문에 각 컨트롤러에 전달하여 컨트롤러에서 model에 데이터를 저장하면
+        // 프론트 컨트롤러에서 전달한 model에 똑같이 데이터가 담기기 때문에
+        // 아래와 같이 데이터가 담긴 model을 MyView에 전달할 수 있다.
         view.render(model, request, response);
     }
     private Map<String, String> createParamMap(HttpServletRequest request) {

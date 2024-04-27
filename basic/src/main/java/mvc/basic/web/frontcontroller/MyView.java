@@ -21,7 +21,7 @@ public class MyView {
     }
 
     public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // model에 있는 데이터를 다 꺼내서 request.setAttribute에 저장을 하고
+        // model에 있는 데이터를 다 꺼내서 request.setAttribute 에 저장을 하고
         modelToRequestAttribute(model, request);
 
         // 포워딩 한다.
